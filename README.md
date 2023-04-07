@@ -1,18 +1,22 @@
 # Minecraft in Docker
 
-如果你看到标题就知道我在说什么, 那么下面给出docker-cli:
+如果你熟练使用docker, 那么下面直接给出docker-cli:
 
 ```
+# 原版 1.19.4
+
 # 拉取1.19.4默认的配置文件
 curl -o $(pwd)/server.properties https://gitee.com/mty0313/docker-mc/raw/master/config/server.properties
 
-# 原版 1.19.4
 docker run -d \
-    --name vanilla1194 \
-    --restart=unless-stopped \
-    -p 25565:25565 \
-    -v $(pwd)/server.properties:/mc/server.properties \
-    martin0313/docker-mc:vanilla1194
+   --name vanilla1194 \
+   --restart=unless-stopped \
+   -p 25565:25565 \
+   -v /etc/localtime:/etc/localtime:ro \
+   -v $(pwd)/server.properties:/mc/server.properties \
+   martin0313/docker-mc:vanilla1194
+
+# mohist 1.12.2
 
 # 拉取mohist 1.12.2 的默认配置文件
 curl -o server.properties https://gitee.com/mty0313/docker-mc/raw/mohist1122/config/server.properties && \
@@ -21,27 +25,29 @@ curl -o server.properties https://gitee.com/mty0313/docker-mc/raw/mohist1122/con
 	curl -o commands.yml https://gitee.com/mty0313/docker-mc/raw/mohist1122/config/commands.yml && \
 	curl -o paper.yml https://gitee.com/mty0313/docker-mc/raw/mohist1122/config/paper.yml
 
-# mohist 1.12.2
 docker run -d \
-	--name mohist1122 \
-	--restart=unless-stopped \
-	-p 25565:25565 \
-	-v $(pwd)/server.properties:/mc/server.properties \
-	-v $(pwd)/mods:/mc/mods \
-	-v $(pwd)/plugins:/mc/plugins \
- 	-v $(pwd)/mohist-config:/mc/mohist-config \
-	-v $(pwd)/bukkit.yml:/mc/bukkit.yml \
-	-v $(pwd)/commands.yml:/mc/commands.yml \
-	-v $(pwd)/paper.yml:/mc/paper.yml \
-	-v $(pwd)/spigot.yml:/mc/spigot.yml \
-	martin0313/docker-mc:mohist1122
+   --name mohist1122 \
+   --restart=unless-stopped \
+   -p 25565:25565 \
+   -v /etc/localtime:/etc/localtime:ro \
+   -v $(pwd)/server.properties:/mc/server.properties \
+   -v $(pwd)/mods:/mc/mods \
+   -v $(pwd)/plugins:/mc/plugins \
+   -v $(pwd)/mohist-config:/mc/mohist-config \
+   -v $(pwd)/bukkit.yml:/mc/bukkit.yml \
+   -v $(pwd)/commands.yml:/mc/commands.yml \
+   -v $(pwd)/paper.yml:/mc/paper.yml \
+   -v $(pwd)/spigot.yml:/mc/spigot.yml \
+   martin0313/docker-mc:mohist1122
 ```
 
 然后你可以关闭这篇README并开始游戏. 如果想了解更多, 也可以继续往下阅读.
 
 ## 这个项目是什么
 
-我做了一些整理工作, 打包了几个镜像, 只需要简单的执行一条 `docker run` 即可运行自己的服务器. 旨在尽可能简化Minecraft的开服过程. 但是有些条件, 比如拥有一台云服务器或者本地服务器拥有公网IP, 防火墙端口等还需要你自己去完成和检查.
+我做了一些整理工作, 打包了几个镜像, 只需要简单的执行一条 `docker run` 即可运行自己的服务器. 旨在尽可能简化Minecraft的开服过程. 
+
+但是有些条件, 比如拥有一台云服务器或者本地服务器拥有公网IP, 防火墙端口等还需要你自己去完成和检查.
 
 - 预设有: 原版服 1.19.4, mod服 1.12.2
 
@@ -79,6 +85,7 @@ docker run -d \
    --name vanilla1194 \
    --restart=unless-stopped \
    -p 25565:25565 \
+   -v /etc/localtime:/etc/localtime:ro \
    -v $(pwd)/server.properties:/mc/server.properties \
    martin0313/docker-mc:vanilla1194
    ```
@@ -134,6 +141,7 @@ docker run -d \
    --name mohist1122 \
    --restart=unless-stopped \
    -p 25565:25565 \
+   -v /etc/localtime:/etc/localtime:ro \
    -v $(pwd)/server.properties:/mc/server.properties \
    -v $(pwd)/mods:/mc/mods \
    -v $(pwd)/plugins:/mc/plugins \
@@ -162,6 +170,10 @@ docker run -d \
 增加适当的环境变量参数可选.
 
 ## 链接
+
+[Gitee项目地址](https://gitee.com/mty0313/docker-mc)
+
+[DockerHub地址](https://hub.docker.com/repository/docker/martin0313/docker-mc/general)
 
 [Minecraft Server](https://www.minecraft.net/zh-hans/download/server)
 

@@ -9,4 +9,4 @@ EXPOSE 25565
 # EXPOSE 25575
 COPY ./run/server.jar /mc/server.jar
 RUN echo "eula=true" > eula.txt
-CMD ["java", "-jar", "-Xmx2048M", "-Xms512M", "server.jar"]
+CMD ["java", "-Xmx2048M", "-Xms512M", "-Duser.timezone=GMT+08", "-jar", "server.jar"]
