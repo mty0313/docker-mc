@@ -15,15 +15,26 @@ docker run -d \
     martin0313/docker-mc:vanilla1194
 
 # 拉取mohist 1.12.2 的默认配置文件
-curl -o $(pwd)/server.properties https://gitee.com/mty0313/docker-mc/raw/mohist1122/config/server.properties
+curl -o server.properties https://gitee.com/mty0313/docker-mc/raw/mohist1122/config/server.properties && \
+	curl -o spigot.yml https://gitee.com/mty0313/docker-mc/raw/mohist1122/config/spigot.yml && \
+	curl -o bukkit.yml https://gitee.com/mty0313/docker-mc/raw/mohist1122/config/bukkit.yml && \
+	curl -o commands.yml https://gitee.com/mty0313/docker-mc/raw/mohist1122/config/commands.yml && \
+	curl -o paper.yml https://gitee.com/mty0313/docker-mc/raw/mohist1122/config/paper.yml
 
 # mohist 1.12.2
 docker run -d \
-    --name mohist1122 \
-    --restart=unless-stopped \
-    -p 25565:25565 \
-    -v $(pwd)/server.properties:/mc/server.properties \
-    martin0313/docker-mc:mohist1122
+	--name mohist1122 \
+	--restart=unless-stopped \
+	-p 25565:25565 \
+	-v $(pwd)/server.properties:/mc/server.properties \
+	-v $(pwd)/mods:/mc/mods \
+	-v $(pwd)/plugins:/mc/plugins \
+ 	-v $(pwd)/mohist-config:/mc/mohist-config \
+	-v $(pwd)/bukkit.yml:/mc/bukkit.yml \
+	-v $(pwd)/commands.yml:/mc/commands.yml \
+	-v $(pwd)/paper.yml:/mc/paper.yml \
+	-v $(pwd)/spigot.yml:/mc/spigot.yml \
+	martin0313/docker-mc:mohist1122
 ```
 
 然后你可以关闭文章并开始游戏. 如果想了解更多, 也可以继续往下阅读.
