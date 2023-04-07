@@ -171,7 +171,7 @@ docker run -d \
 
 [Gitee项目地址](https://gitee.com/mty0313/docker-mc)
 
-[DockerHub地址](https://hub.docker.com/repository/docker/martin0313/docker-mc/general)
+[DockerHub地址](https://hub.docker.com/r/martin0313/docker-mc)
 
 [Minecraft Server](https://www.minecraft.net/zh-hans/download/server)
 
