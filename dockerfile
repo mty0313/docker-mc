@@ -1,8 +1,12 @@
-FROM openjdk:8
-RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
-RUN echo 'Asia/Shanghai' >/etc/timezone
-RUN mkdir /minecraft
-WORKDIR /minecraft
+FROM openjdk:17
+# RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+# RUN echo 'Asia/Shanghai' >/etc/timezone
+RUN mkdir /mc
+WORKDIR /mc
+# server port
 EXPOSE 25565
-EXPOSE 25575
-CMD ./run.sh
+# rcon port
+# EXPOSE 25575
+COPY ./run/server.jar /mc/server.jar
+RUN echo "eula=true" > eula.txt
+CMD ["java", "-jar", "-Xmx2048M", "-Xms512M", "server.jar"]
