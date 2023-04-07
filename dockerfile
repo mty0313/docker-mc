@@ -9,4 +9,4 @@ EXPOSE 25565
 # EXPOSE 25575
 COPY ./run/mohist.jar /mc/mohist.jar
 RUN echo "eula=true" > eula.txt
-CMD ["java", "-jar", "-Xmx2048M", "-Xms512M", "mohist.jar"]
+CMD ["java", "-Xmx2048M", "-Xms512M", "-Duser.timezone=GMT+08", "-jar", "mohist.jar"]
