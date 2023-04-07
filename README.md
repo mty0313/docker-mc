@@ -23,7 +23,6 @@ docker run -d \
     --restart=unless-stopped \
     -p 25565:25565 \
     -v $(pwd)/server.properties:/mc/server.properties \
-	-v 
     martin0313/docker-mc:mohist1122
 ```
 
@@ -95,10 +94,15 @@ docker run -d \
 	```
 	mkdir ~/mohist1122-config && cd ~/mohist1122-config
 
-	curl -o server.properties https://gitee.com/mty0313/docker-mc/raw/mohist1122/config/server.properties
+	curl -o server.properties https://gitee.com/mty0313/docker-mc/raw/mohist1122/config/server.properties && \
+	curl -o spigot.yml https://gitee.com/mty0313/docker-mc/raw/mohist1122/config/spigot.yml && \
+	curl -o bukkit.yml https://gitee.com/mty0313/docker-mc/raw/mohist1122/config/bukkit.yml && \
+	curl -o commands.yml https://gitee.com/mty0313/docker-mc/raw/mohist1122/config/commands.yml && \
+	curl -o paper.yml https://gitee.com/mty0313/docker-mc/raw/mohist1122/config/paper.yml
+ 	
 	```
 
-	这里的配置默认已经关闭了正版验证, 其他保持默认的mohist 1.12.2配置.
+	这里的配置默认已经关闭了正版验证, 其他保持默认的mohist 1.12.2配置. 相比原版, 映射了更多服务端配置文件
 
 3. 创建宿主机的插件、Mod文件夹用于映射(可选,但是推荐)
 
@@ -122,6 +126,11 @@ docker run -d \
 	-v $(pwd)/server.properties:/mc/server.properties \
 	-v $(pwd)/mods:/mc/mods \
 	-v $(pwd)/plugins:/mc/plugins \
+ 	-v $(pwd)/mohist-config:/mc/mohist-config \
+	-v $(pwd)/bukkit.yml:/mc/bukkit.yml \
+	-v $(pwd)/commands.yml:/mc/commands.yml \
+	-v $(pwd)/paper.yml:/mc/paper.yml \
+	-v $(pwd)/spigot.yml:/mc/spigot.yml \
 	martin0313/docker-mc:mohist1122
 	```
 
@@ -130,6 +139,10 @@ docker run -d \
 ## 如果遇到问题
 
 原版服务器执行`docker logs -f vanilla1194`, Mod服执行`docker logs -f mohist1122` 查看日志.
+
+## 其他
+
+如果docker拉取镜像遇到困难, 可以将本项目拉到本地构建镜像并运行.
 
 ## 链接
 
