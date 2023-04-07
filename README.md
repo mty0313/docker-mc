@@ -69,8 +69,7 @@ docker run -d \
    按照如下步骤映射出配置文件:
 
    ```
-   mkdir ~/vanilla1194-config && cd ~/vanilla1194-config
-
+   mkdir ~/vanilla1194-config && cd ~/vanilla1194-config && \
    curl -o server.properties https://gitee.com/mty0313/docker-mc/raw/master/config/server.properties
    ```
 
@@ -110,8 +109,7 @@ docker run -d \
    按照如下步骤映射出配置文件:
 
    ```
-   mkdir ~/mohist1122-config && cd ~/mohist1122-config
-
+   mkdir ~/mohist1122-config && cd ~/mohist1122-config && \
    curl -o server.properties https://gitee.com/mty0313/docker-mc/raw/mohist1122/config/server.properties && \
    curl -o spigot.yml https://gitee.com/mty0313/docker-mc/raw/mohist1122/config/spigot.yml && \
    curl -o bukkit.yml https://gitee.com/mty0313/docker-mc/raw/mohist1122/config/bukkit.yml && \
