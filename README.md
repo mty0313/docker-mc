@@ -17,12 +17,12 @@
 
 2. 映射出你的配置文件(可选,但是推荐)
 	
-	这一步映射容器中的配置文件到宿主机, 如果不做这一步, 你的服务器修改配置会比较麻烦. (默认使用25565端口, 默认开启正版验证等)
+	这一步映射容器中的配置文件到宿主机, 如果不做这一步, 你的服务器修改配置会比较麻烦. (默认配置使用25565端口, 默认开启正版验证等)
 
 	按照如下步骤映射出配置文件:
 
 	```
-	mkdir ~/mc-config && cd ~/mc-config
+	mkdir ~/vanilla1194-config && cd ~/vanilla1194-config
 
 	curl -o server.properties https://gitee.com/mty0313/docker-mc/raw/master/config/server.properties
 	```
@@ -31,7 +31,7 @@
 
 3. 启动服务器
 	
-	确保你在刚才创建的`mc-config`文件夹下, 运行如下命令即可
+	确保你在刚才创建的`vanilla1194-config`文件夹下, 运行如下命令即可
 
 	```
 	docker run -d \
