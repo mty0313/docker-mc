@@ -37,6 +37,8 @@ docker run -d \
 
 ## 链接
 
+[Github地址](https://github.com/mty0313/docker-mc)
+
 [DockerHub地址](https://hub.docker.com/r/martin0313/docker-mc)
 
 [Minecraft Server](https://www.minecraft.net/zh-hans/download/server)
