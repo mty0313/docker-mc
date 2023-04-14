@@ -1,12 +1,13 @@
 FROM openjdk:17
-RUN mkdir /mc && mkdir /res
+RUN groupadd -g 1000 ubuntu && useradd ubuntu -u 1000 -g 1000 && mkdir /mc && mkdir /res
+RUN chown -R ubuntu /mc && chown -R ubuntu /res && \
+    chgrp -R ubuntu /mc && chgrp -R ubuntu /res && \
+    chmod -R 755 /mc && chmod -R 755 /res
 WORKDIR /mc
-VOLUME "/mc"
 # server port
 EXPOSE 25565
 # rcon port
 EXPOSE 25575
 COPY ./run/* ./config/* /res/
-RUN addgroup --gid ${gid} ${username} && \
-    adduser --uid ${uid} --ingroup ${username} --disabled-password ${username}
+USER ubuntu
 ENTRYPOINT ["/bin/bash", "/res/run.sh"]
