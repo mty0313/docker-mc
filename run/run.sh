@@ -1,4 +1,5 @@
-cd /mc 
+cd /mc
+chmod -R 777 /mc
 if [ ! -e "/mc/server.properties" ]; then
   cp /res/* /mc
 fi
