@@ -9,7 +9,7 @@ docker run -d \
    --name vanilla1194 \
    --restart=unless-stopped \
    -p 25565:25565 \
-   -v $(pwd)/vanilla1194:/mc \
+   -v $HOME/vanilla1194:/mc \
    martin0313/docker-mc:vanilla1194
 
 # mohist 1.12.2
@@ -18,7 +18,7 @@ docker run -d \
    --name mohist1122 \
    --restart=unless-stopped \
    -p 25565:25565 \
-   -v $(pwd)/mohist1122:/mc \
+   -v $HOME/mohist1122:/mc \
    martin0313/docker-mc:mohist1122
 ```
 
