@@ -1,7 +1,7 @@
-cd /mc 
+cd /mc
 chmod -R 777 /mc
-if [ ! -e "/mc/eula.txt" ]; then
+if [ ! -e "/mc/server.properties" ]; then
   cp /res/* /mc
 fi
 echo running args: $(cat /mc/args.txt)
-java $(cat /mc/args.txt) -jar server.jar nogui
+java $(cat /mc/args.txt) -jar mohist.jar nogui
