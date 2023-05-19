@@ -1,3 +1,3 @@
 # Minecraft in Docker
 
-mohist 1.12.2
+arclight 1.19.3
