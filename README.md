@@ -3,6 +3,15 @@
 ## 快速开始
 
 ```
+# arclight fabric 1.20.4
+
+docker run -d \
+   --name fabric1204 \
+   --restart=unless-stopped \
+   -p 25565:25565 \
+   -v $HOME/fabric1204:/mc \
+   martin0313/docker-mc:fabric1204
+
 # 原版 1.19.4
 
 docker run -d \
