@@ -1,1 +1,1 @@
-# Arclight Fabric 1.20.4
+# Vanilla 1.20.4
