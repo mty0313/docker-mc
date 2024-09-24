@@ -1,4 +1,4 @@
-FROM openjdk:17
+FROM openjdk:21
 RUN mkdir /mc && mkdir /res
 WORKDIR /mc
 VOLUME "/mc"
