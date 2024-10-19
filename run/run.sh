@@ -1,3 +1,4 @@
+#! /bin/ash
 cd /mc
 chmod -R 777 /mc
 if [ ! -e "/mc/eula.txt" ]; then
