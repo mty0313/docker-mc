@@ -1,0 +1,28 @@
+# Xmx and Xms set the maximum and minimum RAM usage, respectively.
+# They can take any number, followed by an M or a G.
+# M means Megabyte, G means Gigabyte.
+# For example, to set the maximum to 3GB: -Xmx3G
+# To set the minimum to 2.5GB: -Xms2500M
+
+# Optimized JVM arguments for Minecraft Forge server
+# Memory settings - adjust according to your system's available RAM
+-Xms10G
+-Xmx10G
+
+# Garbage Collector optimizations for Minecraft servers
+-XX:+UseG1GC
+-XX:+ParallelRefProcEnabled
+-XX:MaxGCPauseMillis=200
+-XX:+UnlockExperimentalVMOptions
+-XX:+DisableExplicitGC
+-XX:G1HeapWastePercent=5
+-XX:G1MixedGCCountTarget=4
+-XX:G1MixedGCLiveThresholdPercent=90
+-XX:G1RSetUpdatingPauseTimePercent=5
+-XX:SurvivorRatio=32
+-XX:+PerfDisableSharedMem
+-XX:MaxTenuringThreshold=1
+
+# Additional performance optimizations
+-Dfml.earlyprogresswindow=false
+-Dfml.queryResult=confirm
