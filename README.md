@@ -92,6 +92,26 @@ GROUP_ID=$(id -g)
 docker build --build-arg USER_ID=$USER_ID --build-arg GROUP_ID=$GROUP_ID -t martin0313/docker-mc:forge1201 .
 ```
 
+## 如何运行容器
+
+运行预构建的 Forge 服务器容器：
+
+```bash
+# 创建本地目录用于数据持久化
+mkdir -p $HOME/forge1201
+
+# 运行容器
+docker run -d \
+  --name forge1201 \
+  --restart=unless-stopped \
+  -p 25565:25565 \
+  -p 25575:25575 \
+  -v $HOME/forge1201:/mc \
+  -e USER_ID=$(id -u) \
+  -e GROUP_ID=$(id -g) \
+  martin0313/docker-mc:forge1201
+```
+
 ## 链接
 
 [Github地址](https://github.com/mty0313/docker-mc)
